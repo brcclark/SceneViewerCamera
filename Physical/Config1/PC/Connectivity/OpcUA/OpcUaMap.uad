@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OpcUaSource FileVersion="7" ArVersion="B4.73">
+  <Aliases>
+    <ACLAliases />
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView>
+    <Module Name="&lt;Default&gt;">
+      <Task Name="SVControl">
+        <Variable Name="DataProvider" />
+        <Variable Name="Vis">
+          <Variable Name="Controls">
+            <Variable Name="FocalPoint">
+              <Variable Name="XBtnPos" />
+              <Variable Name="XBtnNeg" />
+              <Variable Name="YBtnPos" />
+              <Variable Name="YBtnNeg" />
+              <Variable Name="ZBtnPos" />
+              <Variable Name="ZBtnNeg" />
+              <Variable Name="Visible" />
+            </Variable>
+            <Variable Name="Fov" />
+            <Variable Name="Z" />
+            <Variable Name="Circular">
+              <Variable Name="RadiusBtnNeg" />
+              <Variable Name="RadiusBtnPos" />
+              <Variable Name="Angle" />
+            </Variable>
+            <Variable Name="Linear">
+              <Variable Name="XBtnPos" />
+              <Variable Name="XBtnNeg" />
+              <Variable Name="YBtnPos" />
+              <Variable Name="YBtnNeg" />
+            </Variable>
+            <Variable Name="SavePointA" />
+            <Variable Name="MoveType" />
+            <Variable Name="NewMove" />
+            <Variable Name="Start" />
+            <Variable Name="Load" />
+            <Variable Name="Save" />
+            <Variable Name="SelectedMove" />
+            <Variable Name="MoveMode" />
+          </Variable>
+          <Variable Name="Bind">
+            <Variable Name="Camera">
+              <Variable Name="Perspective" />
+              <Variable Name="Zoom" />
+              <Variable Name="Fov" />
+              <Variable Name="ViewPoint">
+                <Variable Name="X" />
+                <Variable Name="Y" />
+                <Variable Name="Z" />
+              </Variable>
+              <Variable Name="ViewVector">
+                <Variable Name="X" />
+                <Variable Name="Y" />
+                <Variable Name="Z" />
+              </Variable>
+              <Variable Name="OrientationVector">
+                <Variable Name="X" />
+                <Variable Name="Y" />
+                <Variable Name="Z" />
+              </Variable>
+            </Variable>
+            <Variable Name="FocalPoint">
+              <Variable Name="X" />
+              <Variable Name="Y" />
+              <Variable Name="Z" />
+            </Variable>
+            <Variable Name="FocalPointVisible" />
+          </Variable>
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

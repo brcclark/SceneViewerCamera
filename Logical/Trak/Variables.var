@@ -1,0 +1,8 @@
+VAR
+	MoveOnSector : BE_MoveOnSector;
+	AsmPowerOn : MC_BR_AsmPowerOn_AcpTrak;
+	State : USINT;
+	AsmReadInfo : MC_BR_AsmReadInfo_AcpTrak;
+	AxisArray : ARRAY[1..MAX_SHUTTLES] OF McAxisType;
+	FindShuttles : BE_FindShuttles;
+END_VAR

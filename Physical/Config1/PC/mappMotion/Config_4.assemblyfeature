@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <Element ID="AssemblyFeature_1" Type="assemblyfeature">
+    <Selector ID="Type" Value="InitShuttleSim">
+      <Group ID="InitShuttleSim[1]">
+        <Property ID="SectorRef" Value="Sector_1" />
+        <Property ID="Orientation" Value="Positive" />
+        <Selector ID="ShuttleDefinition" Value="ShuttleSetDefinition">
+          <Property ID="StartPosition" Value="0.0" />
+          <Property ID="NumberOfShuttles" Value="5" />
+          <Property ID="DistnaceBetweenShuttles" Value="0.2" />
+        </Selector>
+      </Group>
+    </Selector>
+  </Element>
+</Configuration>

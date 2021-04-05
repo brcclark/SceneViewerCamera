@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="P10_MainPageContent_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.Z" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="BasicSlider8" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.Fov" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="BasicSlider12" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.Circular.Angle" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="BasicSlider4" attribute="value" />
+</Binding>
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.FocalPoint.XBtnPos" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="MomentaryPushButton2" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.FocalPoint.ZBtnPos" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="MomentaryPushButton6" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.Linear.XBtnNeg" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="MomentaryPushButton7" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.Circular.RadiusBtnPos" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="MomentaryPushButton12" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.Circular.RadiusBtnNeg" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="MomentaryPushButton11" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.FocalPoint.YBtnNeg" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="MomentaryPushButton3" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.FocalPoint.YBtnPos" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="MomentaryPushButton4" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.FocalPoint.XBtnNeg" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="MomentaryPushButton1" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.FocalPoint.ZBtnNeg" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="MomentaryPushButton5" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.Linear.XBtnPos" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="MomentaryPushButton8" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.Linear.YBtnPos" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="MomentaryPushButton10" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.Linear.YBtnNeg" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="MomentaryPushButton9" attribute="value" />
+</Binding>
+		<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.SavePointA" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="PushButton1" attribute="value" />
+</Binding>
+		<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:DataProvider" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="ListBox1" attribute="dataProvider" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.NewMove" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="PushButton4" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.Start" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="ToggleButton2" attribute="value" />
+</Binding>
+		<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.SelectedMove" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="ListBox1" attribute="selectedIndex" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.Save" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="PushButton5" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.Load" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="PushButton6" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.MoveMode" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="DropDownBox1" attribute="selectedIndex" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.FocalPoint.Visible" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="CheckBox1" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

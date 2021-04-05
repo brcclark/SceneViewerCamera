@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <Element ID="Sector_1" Type="sector">
+    <Selector ID="Type" Value="Composed">
+      <Group ID="StartSegment">
+        <Property ID="SegmentRef" Value="::gSeg_Main_1" />
+      </Group>
+      <Group ID="IntermediateSegments">
+        <Property ID="SegmentRef[1]" Value="::gSeg_Main_2" />
+        <Property ID="SegmentRef[2]" Value="::gSeg_Main_3" />
+        <Property ID="SegmentRef[3]" Value="::gSeg_Main_4" />
+        <Property ID="SegmentRef[4]" Value="::gSeg_Main_5" />
+        <Property ID="SegmentRef[5]" Value="::gSeg_Main_6" />
+        <Property ID="SegmentRef[6]" Value="::gSeg_Main_7" />
+        <Property ID="SegmentRef[7]" Value="::gSeg_Main_8" />
+        <Property ID="SegmentRef[8]" Value="::gSeg_Main_9" />
+        <Property ID="SegmentRef[9]" Value="::gSeg_Main_10" />
+        <Property ID="SegmentRef[10]" Value="::gSeg_Main_11" />
+      </Group>
+      <Group ID="EndSegment">
+        <Property ID="SegmentRef" Value="::gSeg_Main_12" />
+        <Property ID="PositionRelativeTo" Value="FromEnd" />
+      </Group>
+    </Selector>
+  </Element>
+</Configuration>

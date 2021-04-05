@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="P10_MainPageContent" height="1080" width="1920" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="30" left="100" width="120" zIndex="0" text="Focal Point" />
+    <Widget xsi:type="widgets.brease.BasicSlider" id="BasicSlider4" top="40" left="350" zIndex="1" largeChange="0" maxValue="359" />
+    <Widget xsi:type="widgets.brease.Label" id="Label5" top="50" left="350" width="120" zIndex="2" text="Angle" />
+    <Widget xsi:type="widgets.brease.Label" id="Label6" top="130" left="350" width="120" zIndex="3" text="Radius" />
+    <Widget xsi:type="widgets.brease.BasicSlider" id="BasicSlider8" top="340" left="580" zIndex="4" maxValue="3000" minValue="-3000" />
+    <Widget xsi:type="widgets.brease.BasicSlider" id="BasicSlider12" top="340" left="210" zIndex="5" maxValue="180" minValue="10" />
+    <Widget xsi:type="widgets.brease.Label" id="Label9" top="360" left="210" width="120" zIndex="6" text="FoV" />
+    <Widget xsi:type="widgets.brease.Label" id="Label10" top="370" left="590" width="120" zIndex="7" text="Z" />
+    <Widget xsi:type="widgets.brease.Line" id="Line1" zIndex="8" x1="650" x2="650" y1="10" y2="340" />
+    <Widget xsi:type="widgets.brease.Line" id="Line2" zIndex="9" x1="330" x2="330" y1="10" y2="340" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton1" top="160" left="40" width="50" zIndex="10" text="X-" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton2" top="160" left="160" width="50" zIndex="11" text="X+" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton3" top="190" left="100" width="50" zIndex="12" text="Y-" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton4" top="120" left="100" width="50" zIndex="13" text="Y+" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton5" top="170" left="240" width="40" height="80" zIndex="14" text="Z-" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton6" top="80" left="240" width="40" height="80" zIndex="15" text="Z+" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushButton1" top="520" left="420" zIndex="16" text="SavePointA" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton7" top="130" left="710" width="50" zIndex="17" text="X-" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton8" top="130" left="830" width="50" zIndex="18" text="X+" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton9" top="170" left="770" width="50" zIndex="19" text="Y-" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton10" top="90" left="770" width="50" zIndex="20" text="Y+" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton11" top="170" left="370" width="80" zIndex="21" text="Radius-" />
+    <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton12" top="170" left="500" width="90" zIndex="22" text="Radius+" />
+    <Widget xsi:type="widgets.brease.ListBox" id="ListBox1" top="490" left="30" width="180" height="390" zIndex="23" dataProvider="[]" />
+    <Widget xsi:type="widgets.brease.DropDownBox" id="DropDownBox1" top="260" left="700" width="150" zIndex="24" dataProvider="[{'value':'0','text':'LINEAR'},{'value':'1','text':'RADIAL'}]" selectedValue="0" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushButton4" top="520" left="240" width="110" zIndex="25" text="NewMove" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton2" top="580" left="420" width="110" zIndex="26" text="Start" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushButton5" top="580" left="240" width="110" zIndex="27" text="Save" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushButton6" top="650" left="240" width="110" zIndex="28" text="Load" />
+    <Widget xsi:type="widgets.brease.CheckBox" id="CheckBox1" top="290" left="90" zIndex="29" text="Focal Point Visible" value="true" />
+  </Widgets>
+</Content>
