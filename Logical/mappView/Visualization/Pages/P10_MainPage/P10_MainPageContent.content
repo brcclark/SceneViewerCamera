@@ -17,7 +17,7 @@
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton4" top="120" left="100" width="50" zIndex="13" text="Y+" />
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton5" top="170" left="240" width="40" height="80" zIndex="14" text="Z-" />
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton6" top="80" left="240" width="40" height="80" zIndex="15" text="Z+" />
-    <Widget xsi:type="widgets.brease.PushButton" id="PushButton1" top="520" left="420" zIndex="16" text="SavePointA" />
+    <Widget xsi:type="widgets.brease.PushButton" id="PushButton1" top="520" left="420" width="110" zIndex="16" text="SavePointA" />
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton7" top="130" left="710" width="50" zIndex="17" text="X-" />
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton8" top="130" left="830" width="50" zIndex="18" text="X+" />
     <Widget xsi:type="widgets.brease.MomentaryPushButton" id="MomentaryPushButton9" top="170" left="770" width="50" zIndex="19" text="Y-" />
@@ -31,5 +31,7 @@
     <Widget xsi:type="widgets.brease.PushButton" id="PushButton5" top="580" left="240" width="110" zIndex="27" text="Save" />
     <Widget xsi:type="widgets.brease.PushButton" id="PushButton6" top="650" left="240" width="110" zIndex="28" text="Load" />
     <Widget xsi:type="widgets.brease.CheckBox" id="CheckBox1" top="290" left="90" zIndex="29" text="Focal Point Visible" value="true" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput1" top="460" left="680" zIndex="30" minValue="1" unit="{'metric':'SEC','imperial':'SEC','imperial-us':'SEC'}" unitAlign="right" value="5" />
+    <Widget xsi:type="widgets.brease.ProgressBar" id="ProgressBar1" top="460" left="30" width="180" zIndex="31" maxValue="5" transitionTime="10" />
   </Widgets>
 </Content>

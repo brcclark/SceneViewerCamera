@@ -4,7 +4,7 @@ VAR
 	FocalPointMove : SV_BE_FocalPointMove;
 	State : State_enum;
 	TravelTime : TIME := T#5s;
-	Vis : Vis_typ;
+	Vis : Vis_typ := (Controls:=(TimeInput:=5),Bind:=(FocalPointVisible:=TRUE));
 	FocalPointInit : SceneViewCoord_typ := (X:=-322,Y:=385,Z:=193);
 	StartView : SceneViewCamera_typ := (Perspective:=TRUE,Zoom:=10,Fov:=50,ViewPoint:=(X:=-372,Y:=-861,Z:=840),ViewVector:=(X:=0.05,Y:=0.906,Z:=-0.647),OrientationVector:=(X:=0,Y:=0,Z:=1));
 	AngleRad : REAL;

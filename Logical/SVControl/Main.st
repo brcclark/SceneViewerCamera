@@ -108,13 +108,22 @@ PROGRAM _CYCLIC
 				IF NOT CamMove[i].IsSaved THEN
 					CamMove[i].IsSaved := TRUE;
 					CamMove[i].MoveType := Vis.Controls.MoveMode;
+					CamMove[i].TravelTime := REAL_TO_TIME(Vis.Controls.TimeInput * 1000);
 
-					State := UPDATE_LIST;
+					State := NEW_MOVE_SAVE;
 					EXIT;
 				ELSIF i = MAX_NUM_MOVES THEN
 					State := MOVE_SETTINGS;
 				END_IF
 			END_FOR
+			
+		NEW_MOVE_SAVE: 
+
+			TotalNumMoves := TotalNumMoves + 1;
+			CamMove[i].Point := Vis.Bind.Camera;
+			CamMove[i].FocalPoint := Vis.Bind.FocalPoint;
+			
+			State := UPDATE_LIST;
 			
 		UPDATE_LIST:
 			brsftoa(i, ADR(MoveIndexString));
@@ -127,14 +136,9 @@ PROGRAM _CYCLIC
 			IntermediateDateProvider[i] := CONCAT(IntermediateDateProvider[i], MoveNumText[i]);
 			DataProvider[i] := CONCAT(IntermediateDateProvider[i],'"}');
 			
-			State := NEW_MOVE_SAVE;
-			
-		NEW_MOVE_SAVE: 
-
-			TotalNumMoves := TotalNumMoves + 1;
-			CamMove[i].Point := Vis.Bind.Camera;
-			CamMove[i].FocalPoint := Vis.Bind.FocalPoint;
 			State := MOVE_SETTINGS;
+			
+		
 			
 		LOAD_MOVE: //load
 			Vis.Controls.Load := FALSE;
@@ -144,6 +148,7 @@ PROGRAM _CYCLIC
 				Vis.Controls.Linear.Y := CamMove[Vis.Controls.SelectedMove].Point.ViewPoint.Y;
 				Vis.Controls.Z := CamMove[Vis.Controls.SelectedMove].Point.ViewPoint.Z;
 				Vis.Controls.Fov := CamMove[Vis.Controls.SelectedMove].Point.Fov;
+				Vis.Controls.TimeInput := TIME_TO_REAL(CamMove[Vis.Controls.SelectedMove].TravelTime) / 1000;
 				
 				
 				
@@ -156,10 +161,16 @@ PROGRAM _CYCLIC
 			IF CamMove[Vis.Controls.SelectedMove].IsSaved THEN
 				CamMove[Vis.Controls.SelectedMove].Point := Vis.Bind.Camera;
 				CamMove[Vis.Controls.SelectedMove].FocalPoint := Vis.Bind.FocalPoint;
+				CamMove[Vis.Controls.SelectedMove].TravelTime := REAL_TO_TIME(Vis.Controls.TimeInput * 1000);
+				i := Vis.Controls.SelectedMove;
+				State := UPDATE_LIST;
+			ELSE
+				State := MOVE_SETTINGS;
 			END_IF
-			State := MOVE_SETTINGS;
+			
 			
 		START_MOVE:
+			TravelTime := CamMove[CompletedMoves].TravelTime;
 			IF CamMove[CompletedMoves].MoveType = LINEAR THEN
 				State := LINEAR_MOVE;
 			ELSIF CamMove[CompletedMoves].MoveType = RADIAL THEN
@@ -179,12 +190,7 @@ PROGRAM _CYCLIC
 			State := WAIT_FOR_RADIAL_MOVE_DONE;
 			
 			
-		
-//			IF RadialMove.Done THEN
-//				RadialMove.Execute := FALSE;
-//				CompletedMoves := CompletedMoves + 1;
-//				State := MOVE_COMPLETE;
-//			END_IF
+	
 			
 		WAIT_FOR_RADIAL_MOVE_DONE:
 			
@@ -196,6 +202,8 @@ PROGRAM _CYCLIC
 			END_IF
 			
 			RadialMove();
+			Vis.Controls.ActiveMoveTravelTime := TravelTime;
+			Vis.Controls.ActiveMoveElapsedTime := RadialMove.ElapsedTime;
 			Vis.Bind.FocalPoint := RadialMove.FocalPointPos;
 			Vis.Bind.Camera := RadialMove.SceneViewPos;
 		
@@ -221,6 +229,8 @@ PROGRAM _CYCLIC
 			END_IF
 			
 			FocalPointMove();
+			Vis.Controls.ActiveMoveTravelTime := TravelTime;
+			Vis.Controls.ActiveMoveElapsedTime := FocalPointMove.ElapsedTime;
 			Vis.Bind.FocalPoint := FocalPointMove.FocalPointPos;
 			Vis.Bind.Camera := FocalPointMove.SceneViewPos;
 			

@@ -42,6 +42,9 @@
             <Variable Name="Save" />
             <Variable Name="SelectedMove" />
             <Variable Name="MoveMode" />
+            <Variable Name="TimeInput" />
+            <Variable Name="ActiveMoveTravelTime" />
+            <Variable Name="ActiveMoveElapsedTime" />
           </Variable>
           <Variable Name="Bind">
             <Variable Name="Camera">

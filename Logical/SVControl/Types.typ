@@ -42,6 +42,9 @@ TYPE
 		Save : BOOL;
 		SelectedMove : USINT;
 		MoveMode : MoveType_enum;
+		TimeInput : REAL;
+		ActiveMoveTravelTime : TIME;
+		ActiveMoveElapsedTime : TIME;
 	END_STRUCT;
 	FocalPointControls_typ : 	STRUCT 
 		XBtnPos : USINT;
@@ -57,6 +60,7 @@ TYPE
 		MoveType : MoveType_enum;
 		Point : SceneViewCamera_typ;
 		FocalPoint : SceneViewCoord_typ;
+		TravelTime : TIME;
 	END_STRUCT;
 	State_enum : 
 		(

@@ -93,5 +93,6 @@ FUNCTION_BLOCK SV_BE_RadialMove
 	END_CASE
 	
 	TON_ViewChange();
+	ElapsedTime := TON_ViewChange.ET;
 	
 END_FUNCTION_BLOCK

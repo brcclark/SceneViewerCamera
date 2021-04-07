@@ -103,5 +103,19 @@
 <Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.FocalPoint.Visible" attribute="value" />
 <Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="CheckBox1" attribute="value" />
 </Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.TimeInput" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="NumericInput1" attribute="value" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.ActiveMoveTravelTime" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="ProgressBar1" attribute="maxValue" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::SVControl:Vis.Controls.ActiveMoveElapsedTime" attribute="value" />
+<Target xsi:type="brease" contentRefId="P10_MainPageContent" widgetRefId="ProgressBar1" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>

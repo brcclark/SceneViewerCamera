@@ -39,6 +39,9 @@ END_FUNCTION_BLOCK
 		FocalPointChangeRate : SceneViewCoord_typ;
 		ChangeRate : SceneViewCamera_typ;
 	END_VAR
+	VAR_OUTPUT
+		ElapsedTime : TIME;
+	END_VAR
 END_FUNCTION_BLOCK
 
 {REDUND_ERROR} FUNCTION_BLOCK SV_BE_RadialMove
@@ -55,6 +58,7 @@ END_FUNCTION_BLOCK
 		Done : BOOL;
 		FocalPointPos : SceneViewCoord_typ;
 		SceneViewPos : SceneViewCamera_typ;
+		ElapsedTime : TIME;
 	END_VAR
 	VAR
 		FocalPointChangeRate : SceneViewCoord_typ;
