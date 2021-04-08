@@ -14,15 +14,22 @@ PROGRAM _INIT
 	Vis.Controls.Z := StartView.ViewPoint.Z;
 	Vis.Controls.Fov := StartView.Fov;
 	Vis.Controls.Circular.Radius := 100;
+	
+	SvMovieRecipeFb.MpLink := ADR(gRecipeScnViewer);
+	SvMovieRecipeFb.Enable := TRUE;
+	SvMovieRecipeFb.Category := ADR('SvMovie');
+	SvMovieRecipeFb.DeviceName := ADR('SvMovie');
+	SvMovieRecipeFb.FileName := ADR(svMovieRecipeIf.Par.FileName);
+	SvMovieRecipeFb();
+	
+	SvMovieRecipeRegParFb.MpLink := ADR(gRecipeScnViewer);
+	SvMovieRecipeRegParFb.Enable := TRUE;
+	SvMovieRecipeRegParFb.Category := ADR('SvMovie');
+	SvMovieRecipeRegParFb.PVName := ADR('SVControl:CamMove');
+	SvMovieRecipeRegParFb();
 END_PROGRAM
 
 PROGRAM _CYCLIC
-	
-	
-	
-	
-
-	
 	Vis.Bind.FocalPoint.X := Vis.Bind.FocalPoint.X + Vis.Controls.FocalPoint.XBtnPos - Vis.Controls.FocalPoint.XBtnNeg;
 	Vis.Bind.FocalPoint.Y := Vis.Bind.FocalPoint.Y + Vis.Controls.FocalPoint.YBtnPos - Vis.Controls.FocalPoint.YBtnNeg;
 	Vis.Bind.FocalPoint.Z := Vis.Bind.FocalPoint.Z + Vis.Controls.FocalPoint.ZBtnPos - Vis.Controls.FocalPoint.ZBtnNeg;
@@ -85,10 +92,14 @@ PROGRAM _CYCLIC
 				Vis.Controls.Save := FALSE;
 				State := SAVE_MOVE;
 			END_IF
-					
-					
-					
 			
+			IF svMovieRecipeIf.Cmd.Load OR svMovieRecipeIf.Cmd.Save THEN
+				SvMovieRecipeFb.Save := svMovieRecipeIf.Cmd.Save;
+				SvMovieRecipeFb.Load := svMovieRecipeIf.Cmd.Load;
+				
+				State := SAVE_LOAD_RECIPE;
+			END_IF
+						
 			IF Vis.Controls.SavePointA THEN
 				Vis.Controls.SavePointA := FALSE;
 				Point[0] := Vis.Bind.Camera;
@@ -137,9 +148,45 @@ PROGRAM _CYCLIC
 			DataProvider[i] := CONCAT(IntermediateDateProvider[i],'"}');
 			
 			State := MOVE_SETTINGS;
+		SAVE_LOAD_RECIPE:
+			IF SvMovieRecipeFb.CommandDone THEN
+				IF svMovieRecipeIf.Cmd.Load THEN
+					SvMovieRecipeFb.Load := FALSE;
+					svMovieRecipeIf.Cmd.Load := FALSE;
+					svMovieRecipeIf.Sts.LastLoadedRecipe := svMovieRecipeIf.Par.FileName;
+					
+					State := REBUILD_LIST;
+				ELSIF svMovieRecipeIf.Cmd.Save THEN
+					SvMovieRecipeFb.Save := FALSE;
+					svMovieRecipeIf.Cmd.Save := FALSE;
+					
+					State := MOVE_SETTINGS;
+				END_IF
+			END_IF
+		REBUILD_LIST:
+			brsmemset(ADR(DataProvider),0,SIZEOF(DataProvider));
+			brsmemset(ADR(MoveNumText),0,SIZEOF(MoveNumText));
+			brsmemset(ADR(IntermediateDateProvider),0,SIZEOF(IntermediateDateProvider));
+			FOR i:=0 TO MAX_NUM_MOVES DO
+				IF CamMove[i].IsSaved THEN
+					brsftoa(i, ADR(MoveIndexString));
+					MoveNumText[i] := CONCAT(MoveIndexString, ': ');
+					CASE CamMove[i].MoveType OF
+						LINEAR:
+							MoveNumText[i] := CONCAT(MoveNumText[i], 'Linear');			
+						RADIAL:
+							MoveNumText[i] := CONCAT(MoveNumText[i], 'Radial');			
+					END_CASE;
+					MoveNumText[i] := CONCAT(MoveNumText[i], ' Move');
+					
+					IntermediateDateProvider[i] := CONCAT('{"value":"',MoveIndexString);
+					IntermediateDateProvider[i] := CONCAT(IntermediateDateProvider[i],'","text":"');
+					IntermediateDateProvider[i] := CONCAT(IntermediateDateProvider[i], MoveNumText[i]);
+					DataProvider[i] := CONCAT(IntermediateDateProvider[i],'"}');
+				END_IF
+			END_FOR;
 			
-		
-			
+			State := MOVE_SETTINGS;
 		LOAD_MOVE: //load
 			Vis.Controls.Load := FALSE;
 			
@@ -149,8 +196,6 @@ PROGRAM _CYCLIC
 				Vis.Controls.Z := CamMove[Vis.Controls.SelectedMove].Point.ViewPoint.Z;
 				Vis.Controls.Fov := CamMove[Vis.Controls.SelectedMove].Point.Fov;
 				Vis.Controls.TimeInput := TIME_TO_REAL(CamMove[Vis.Controls.SelectedMove].TravelTime) / 1000;
-				
-				
 				
 				Vis.Bind.Camera := CamMove[Vis.Controls.SelectedMove].Point;
 				Vis.Bind.FocalPoint := CamMove[Vis.Controls.SelectedMove].FocalPoint;
@@ -189,8 +234,6 @@ PROGRAM _CYCLIC
 			RadialMove.Execute := TRUE;
 			State := WAIT_FOR_RADIAL_MOVE_DONE;
 			
-			
-	
 			
 		WAIT_FOR_RADIAL_MOVE_DONE:
 			
@@ -250,17 +293,10 @@ PROGRAM _CYCLIC
 			IF NOT Vis.Controls.Start THEN
 				State := MOVE_SETTINGS;
 			END_IF
-		
-
-		
-		
-		
-		
 	END_CASE
 	
-	
-//	RadialMove();
-//	FocalPointMove();
+	SvMovieRecipeFb();
+	SvMovieRecipeRegParFb();
 	 
 END_PROGRAM
 
@@ -268,4 +304,5 @@ PROGRAM _EXIT
 	(* Insert code here *)
 	 
 END_PROGRAM
+
 
