@@ -49,6 +49,7 @@ PROGRAM _CYCLIC
 					Vis.Bind.Camera.ViewPoint.X := Vis.Controls.Linear.X;
 					Vis.Bind.Camera.ViewPoint.Y := Vis.Controls.Linear.Y;
 				
+					//keeps view the same when switching to radial mode
 					AngleRad := atan2((Vis.Bind.Camera.ViewPoint.Y - Vis.Bind.FocalPoint.Y),(Vis.Bind.Camera.ViewPoint.X - Vis.Bind.FocalPoint.X));
 					Vis.Controls.Circular.Angle := AngleRad * 180 / PI;
 					IF Vis.Controls.Circular.Angle < 0 THEN
@@ -193,12 +194,26 @@ PROGRAM _CYCLIC
 			IF CamMove[Vis.Controls.SelectedMove].IsSaved THEN
 				Vis.Controls.Linear.X := CamMove[Vis.Controls.SelectedMove].Point.ViewPoint.X;
 				Vis.Controls.Linear.Y := CamMove[Vis.Controls.SelectedMove].Point.ViewPoint.Y;
+				
 				Vis.Controls.Z := CamMove[Vis.Controls.SelectedMove].Point.ViewPoint.Z;
 				Vis.Controls.Fov := CamMove[Vis.Controls.SelectedMove].Point.Fov;
 				Vis.Controls.TimeInput := TIME_TO_REAL(CamMove[Vis.Controls.SelectedMove].TravelTime) / 1000;
+				Vis.Controls.MoveMode := CamMove[Vis.Controls.SelectedMove].MoveType;
 				
 				Vis.Bind.Camera := CamMove[Vis.Controls.SelectedMove].Point;
 				Vis.Bind.FocalPoint := CamMove[Vis.Controls.SelectedMove].FocalPoint;
+				
+				
+				//update radial controls
+				AngleRad := atan2((Vis.Bind.Camera.ViewPoint.Y - Vis.Bind.FocalPoint.Y),(Vis.Bind.Camera.ViewPoint.X - Vis.Bind.FocalPoint.X));
+				Vis.Controls.Circular.Angle := AngleRad * 180 / PI;
+				IF Vis.Controls.Circular.Angle < 0 THEN
+					Vis.Controls.Circular.Angle := Vis.Controls.Circular.Angle + 360;
+				ELSIF Vis.Controls.Circular.Angle >= 360 THEN
+					Vis.Controls.Circular.Angle := Vis.Controls.Circular.Angle - 360;
+				END_IF
+				Vis.Controls.Circular.Radius := (Vis.Bind.Camera.ViewPoint.X - Vis.Bind.FocalPoint.X) / COS(AngleRad);
+				
 			END_IF
 			State := MOVE_SETTINGS;
 			
