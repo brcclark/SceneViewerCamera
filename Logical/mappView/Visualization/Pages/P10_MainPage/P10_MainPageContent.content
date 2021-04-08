@@ -33,5 +33,9 @@
     <Widget xsi:type="widgets.brease.CheckBox" id="CheckBox1" top="290" left="90" zIndex="29" text="Focal Point Visible" value="true" />
     <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput1" top="460" left="680" zIndex="30" minValue="1" unit="{'metric':'SEC','imperial':'SEC','imperial-us':'SEC'}" unitAlign="right" value="5" />
     <Widget xsi:type="widgets.brease.ProgressBar" id="ProgressBar1" top="460" left="30" width="180" zIndex="31" maxValue="5" transitionTime="10" />
+    <Widget xsi:type="widgets.brease.Label" id="Label2" top="546" left="844" zIndex="32" text="File Name" />
+    <Widget xsi:type="widgets.brease.TextInput" id="tiFileName" top="596" left="844" width="230" zIndex="33" />
+    <Widget xsi:type="widgets.brease.PushButton" id="pbSaveRecipe" top="640" left="846" zIndex="34" text="Save Movie" />
+    <Widget xsi:type="widgets.brease.PushButton" id="pbLoadRecipe" top="640" left="970" zIndex="35" text="Load Movie" />
   </Widgets>
 </Content>

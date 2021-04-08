@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.7.3.93 SP?>
+<?AutomationStudio Version=4.7.5.60 SP?>
 <Package Version="1.00.0" xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="File" Description="Global data types">Global.typ</Object>
@@ -10,5 +10,6 @@
     <Object Type="Program" Language="IEC">Trak</Object>
     <Object Type="Program" Language="IEC">SVControl</Object>
     <Object Type="Package">mappView</Object>
+    <Object Type="Package">SavedMovies</Object>
   </Objects>
 </Package>

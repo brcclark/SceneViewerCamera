@@ -26,4 +26,7 @@ VAR
 	i : USINT;
 	FocalPointB : SceneViewCoord_typ;
 	FocalPointA : SceneViewCoord_typ;
+	SvMovieRecipeFb : MpRecipeXml;
+	SvMovieRecipeRegParFb : MpRecipeRegPar;
+	svMovieRecipeIf : RecipeCtrlTyp;
 END_VAR

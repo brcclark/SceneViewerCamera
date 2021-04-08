@@ -75,6 +75,7 @@
             <Variable Name="FocalPointVisible" />
           </Variable>
         </Variable>
+        <Variable Name="svMovieRecipeIf" AutomaticEnable="True" />
       </Task>
     </Module>
   </DefaultView>
