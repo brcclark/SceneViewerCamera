@@ -168,8 +168,10 @@ PROGRAM _CYCLIC
 			brsmemset(ADR(DataProvider),0,SIZEOF(DataProvider));
 			brsmemset(ADR(MoveNumText),0,SIZEOF(MoveNumText));
 			brsmemset(ADR(IntermediateDateProvider),0,SIZEOF(IntermediateDateProvider));
+			TotalNumMoves := 0; //Added for loading saved recipes
 			FOR i:=0 TO MAX_NUM_MOVES DO
 				IF CamMove[i].IsSaved THEN
+					TotalNumMoves := TotalNumMoves + 1;
 					brsftoa(i, ADR(MoveIndexString));
 					MoveNumText[i] := CONCAT(MoveIndexString, ': ');
 					CASE CamMove[i].MoveType OF
